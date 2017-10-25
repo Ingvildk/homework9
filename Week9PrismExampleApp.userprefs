@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{A448DDE5-BC84-4996-834C-1A401D8C3692}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Week9PrismExampleApp/App.xaml.cs">
+    <Files>
+      <File FileName="Week9PrismExampleApp/App.xaml.cs" Line="24" Column="61" />
+      <File FileName="Week9PrismExampleApp/Views/MainPage.xaml" Line="16" Column="1" />
+      <File FileName="Week9PrismExampleApp/ViewModels/MainPageViewModel.cs" Line="21" Column="56" />
+      <File FileName="Week9PrismExampleApp/App.xaml" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../Git/LuxorUniversal/Luxor.Droid/Gestures/TouchEffect.cs" line="210" offsetX="658" offsetY="3172" expression="pointerLocation.Y" liveUpdate="True" />
+    <Watch file="../../Git/LuxorUniversal/Luxor.Droid/Gestures/TouchEffect.cs" line="209" offsetX="658" offsetY="3119" expression="pointerLocation.X" liveUpdate="True" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Week9PrismExampleApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.EAC59461-916A-4694-A3BA-E84A2BAEFF16">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.Week9PrismExampleApp.iOS>
+</Properties>
