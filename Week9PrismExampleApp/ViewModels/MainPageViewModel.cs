@@ -11,8 +11,6 @@ namespace Week9PrismExampleApp.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        INavigationService _navigationService;
-
         private string _buttonText;
         public string ButtonText
         {
@@ -37,7 +35,9 @@ namespace Week9PrismExampleApp.ViewModels
         public DelegateCommand NavToNewPageCommand { get; set; }
         public DelegateCommand AddNameCommand { get; set; }
 
-        public MainPageViewModel(INavigationService navigationService)
+		INavigationService _navigationService;
+
+		public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
@@ -45,11 +45,15 @@ namespace Week9PrismExampleApp.ViewModels
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
             Title = "Xamarin Forms Application + Prism";
             ButtonText = "Add Name";
-        }
+
+			PopulateListView();
+		}
 
         private async void NavToNewPage()
         {
-            await _navigationService.NavigateAsync("SamplePageForNavigation");
+            var navParams = new NavigationParameters();
+            navParams.Add("NavFromPage", "MainPageViewModel"); 
+            await _navigationService.NavigateAsync("SamplePageForNavigation", navParams);
         }
 
         private async void AddName()
@@ -64,12 +68,10 @@ namespace Week9PrismExampleApp.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            PopulateListView();
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-
         }
 
         private void PopulateListView()
