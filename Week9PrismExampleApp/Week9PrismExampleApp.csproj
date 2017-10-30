@@ -40,6 +40,8 @@
       <DependentUpon>SamplePageForNavigation.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SamplePageForNavigationViewModel.cs" />
+    <Compile Include="Models\WeatherItemModel.cs" />
+    <Compile Include="ApiKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -85,6 +87,9 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

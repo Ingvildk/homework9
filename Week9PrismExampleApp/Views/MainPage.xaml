@@ -11,6 +11,14 @@
         Padding="0,20,0,0"
         HorizontalOptions="Center"
         VerticalOptions="Start">
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Center">
+            <Entry
+                Placeholder="Enter Location" />
+            <Button
+                Text="Search Weather" />
+        </StackLayout>
         <Button
             Text="Navigation Example"
             Command="{Binding NavToNewPageCommand}" />

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using static Week9PrismExampleApp.Models.WeatherItemModel;
 
 namespace Week9PrismExampleApp.ViewModels
 {
@@ -74,9 +75,20 @@ namespace Week9PrismExampleApp.ViewModels
         {
         }
 
-        private void PopulateListView()
+        private async void PopulateListView()
         {
-            CollectionOfNames.Add("Thomas");
+            HttpClient client = new HttpClient();
+            var uri = new Uri(string.Format($"http://api.openweathermap.org/data/2.5/weather?q=Escondido&APPID={ApiKeys.WeatherKey}"));
+			var response = await client.GetAsync(uri);
+            WeatherItem weatherData = null;
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+                weatherData = WeatherItem.FromJson(content);
+			}
+            CollectionOfNames.Add(weatherData.Name);
+
+			CollectionOfNames.Add("Thomas");
             CollectionOfNames.Add("Charlie");
             CollectionOfNames.Add("James");
             CollectionOfNames.Add("Jennifer");
