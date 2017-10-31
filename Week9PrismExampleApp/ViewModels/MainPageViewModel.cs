@@ -7,7 +7,9 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using static Week9PrismExampleApp.Models.WeatherItemModel;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Week9PrismExampleUnitTests")]
 namespace Week9PrismExampleApp.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
@@ -27,7 +29,7 @@ namespace Week9PrismExampleApp.ViewModels
         }
 
         private ObservableCollection<string> _collectionOfNames = new ObservableCollection<string>();
-        public ObservableCollection<string> CollectionOfNames
+        public ObservableCollection<string> WeatherCollection
         {
             get { return _collectionOfNames; }
             set { SetProperty(ref _collectionOfNames, value); }
@@ -57,9 +59,9 @@ namespace Week9PrismExampleApp.ViewModels
             await _navigationService.NavigateAsync("SamplePageForNavigation", navParams);
         }
 
-        private async void AddName()
+        internal async void AddName()
         {
-            CollectionOfNames.Add("Temp");
+            WeatherCollection.Add("Temp");
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -78,7 +80,10 @@ namespace Week9PrismExampleApp.ViewModels
         private async void PopulateListView()
         {
             HttpClient client = new HttpClient();
-            var uri = new Uri(string.Format($"http://api.openweathermap.org/data/2.5/weather?q=Escondido&APPID={ApiKeys.WeatherKey}"));
+            var uri = new Uri(
+                string.Format(
+                    $"http://api.openweathermap.org/data/2.5/weather?q=Escondido&APPID=" +
+                    $"{ApiKeys.WeatherKey}"));
 			var response = await client.GetAsync(uri);
             WeatherItem weatherData = null;
 			if (response.IsSuccessStatusCode)
@@ -86,14 +91,14 @@ namespace Week9PrismExampleApp.ViewModels
 				var content = await response.Content.ReadAsStringAsync();
                 weatherData = WeatherItem.FromJson(content);
 			}
-            CollectionOfNames.Add(weatherData.Name);
+            WeatherCollection.Add(weatherData.Name);
 
-			CollectionOfNames.Add("Thomas");
-            CollectionOfNames.Add("Charlie");
-            CollectionOfNames.Add("James");
-            CollectionOfNames.Add("Jennifer");
-            CollectionOfNames.Add("Sharon");
-            CollectionOfNames.Add("Aaron");
+			WeatherCollection.Add("Thomas");
+            WeatherCollection.Add("Charlie");
+            WeatherCollection.Add("James");
+            WeatherCollection.Add("Jennifer");
+            WeatherCollection.Add("Sharon");
+            WeatherCollection.Add("Aaron");
         }
     }
 }
