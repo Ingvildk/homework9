@@ -35,8 +35,6 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _locationEnteredByUser, value); }
         }
 
-
-
         private ObservableCollection<WeatherItem> _weatherCollection = new ObservableCollection<WeatherItem>();
         public ObservableCollection<WeatherItem> WeatherCollection
         {
@@ -45,51 +43,43 @@ namespace Week9PrismExampleApp.ViewModels
         }
 
         public DelegateCommand NavToNewPageCommand { get; set; }
-        public DelegateCommand AddNameCommand { get; set; }
-		public DelegateCommand GetWeatherForLocationCommand { get; set; }
+        public DelegateCommand GetWeatherForLocationCommand { get; set; }
 
-		INavigationService _navigationService;
+        INavigationService _navigationService;
 
-		public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
-            AddNameCommand = new DelegateCommand(AddName);
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
             GetWeatherForLocationCommand = new DelegateCommand(GetWeatherForLocation);
 
             Title = "Xamarin Forms Application + Prism";
             ButtonText = "Add Name";
-
-			//Popul/ateListView();
-		}
+        }
 
         internal async void GetWeatherForLocation()
         {
-			HttpClient client = new HttpClient();
-			var uri = new Uri(
-				string.Format(
+            HttpClient client = new HttpClient();
+            var uri = new Uri(
+                string.Format(
                     $"http://api.openweathermap.org/data/2.5/weather?q={LocationEnteredByUser}&units=imperial&APPID=" +
-					$"{ApiKeys.WeatherKey}"));
-			var response = await client.GetAsync(uri);
-			WeatherItem weatherData = null;
-			if (response.IsSuccessStatusCode)
-			{
-				var content = await response.Content.ReadAsStringAsync();
-				weatherData = WeatherItem.FromJson(content);
-			}
-			WeatherCollection.Add(weatherData);
-		}
+                    $"{ApiKeys.WeatherKey}"));
+            var response = await client.GetAsync(uri);
+            WeatherItem weatherData = null;
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                weatherData = WeatherItem.FromJson(content);
+            }
+            WeatherCollection.Add(weatherData);
+        }
 
         private async void NavToNewPage()
         {
             var navParams = new NavigationParameters();
-            navParams.Add("NavFromPage", "MainPageViewModel"); 
+            navParams.Add("NavFromPage", "MainPageViewModel");
             await _navigationService.NavigateAsync("SamplePageForNavigation", navParams);
-        }
-
-        internal async void AddName()
-        {
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -103,23 +93,6 @@ namespace Week9PrismExampleApp.ViewModels
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-        }
-
-        private async void PopulateListView()
-        {
-            HttpClient client = new HttpClient();
-            var uri = new Uri(
-                string.Format(
-                    $"http://api.openweathermap.org/data/2.5/weather?q=Escondido&APPID=" +
-                    $"{ApiKeys.WeatherKey}"));
-			var response = await client.GetAsync(uri);
-            WeatherItem weatherData = null;
-			if (response.IsSuccessStatusCode)
-			{
-				var content = await response.Content.ReadAsStringAsync();
-                weatherData = WeatherItem.FromJson(content);
-			}
-            WeatherCollection.Add(weatherData);
         }
     }
 }

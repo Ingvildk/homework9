@@ -14,16 +14,13 @@
         <Button
             Text="Navigation Example"
             Command="{Binding NavToNewPageCommand}" />
-        <Button
-            x:Name="AddNameButton"
-            Text="{Binding ButtonText}"
-            Command="{Binding AddNameCommand}" />
         <StackLayout
             Orientation="Horizontal"
             HorizontalOptions="CenterAndExpand">
             <Entry
                 Placeholder="Enter Location"
-                Text="{Binding LocationEnteredByUser}" />
+                Text="{Binding LocationEnteredByUser}"
+                WidthRequest="200" />
             <Button
                 Text="Search Weather"
                 Command="{Binding GetWeatherForLocationCommand}" />
@@ -34,15 +31,23 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout>
+                            <StackLayout
+                                Orientation="Horizontal">
                                 <Label
+                                    x:Name="LocationNameLabel"
                                     Text="{Binding Name}"
                                     VerticalOptions="Center"
-                                    HorizontalOptions="Start" />
+                                    Margin="10" />
                                 <Label
-                                    Text="{Binding Main.Temp}"
+                                    x:Name="TemperatureLabel"
+                                    Text="{Binding Main.Temp, StringFormat='Temp: {0}'}"
                                     VerticalOptions="Center"
-                                    HorizontalOptions="End" />
+                                    Margin="10" />
+                                <Label
+                                    x:Name="CloudLabel"
+                                    Text="{Binding Clouds.All, StringFormat='Cloud %: {0}'}"
+                                    VerticalOptions="Center"
+                                    Margin="10" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
