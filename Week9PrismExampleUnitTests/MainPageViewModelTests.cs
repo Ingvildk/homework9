@@ -26,7 +26,7 @@ namespace Week9PrismExampleUnitTests
         {
             //Arrange: create instance of view model (done in init method)
             //Act: Call our method under test (AddName)
-            mainPageViewModel.AddName();
+            //mainPageViewModel.AddName();
 
             //Assert: New item in WeatherCollection
 
