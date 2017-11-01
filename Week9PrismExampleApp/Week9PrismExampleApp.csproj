@@ -42,6 +42,10 @@
     <Compile Include="ViewModels\SamplePageForNavigationViewModel.cs" />
     <Compile Include="Models\WeatherItemModel.cs" />
     <Compile Include="ApiKeys.cs" />
+    <Compile Include="Views\EasyTestPage.xaml.cs">
+      <DependentUpon>EasyTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EasyTestPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -51,6 +55,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SamplePageForNavigation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EasyTestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
