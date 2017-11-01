@@ -3,15 +3,14 @@
     <Files>
       <File FileName="Week9PrismExampleApp/App.xaml.cs" Line="25" Column="72" />
       <File FileName="Week9PrismExampleApp/Views/MainPage.xaml" Line="37" Column="62" />
-      <File FileName="Week9PrismExampleApp/ViewModels/MainPageViewModel.cs" Line="68" Column="55" />
+      <File FileName="Week9PrismExampleApp/ViewModels/MainPageViewModel.cs" Line="12" Column="30" />
       <File FileName="Week9PrismExampleApp.iOS/Main.cs" Line="17" Column="1" />
       <File FileName="Week9PrismExampleApp/Views/SamplePageForNavigation.xaml" Line="17" Column="15" />
       <File FileName="Week9PrismExampleApp/ViewModels/SamplePageForNavigationViewModel.cs" Line="31" Column="10" />
       <File FileName="Week9PrismExampleApp/Models/WeatherItemModel.cs" Line="125" Column="36" />
+      <File FileName="Week9PrismExampleApp/ViewModels/EasyTestPageViewModel.cs" Line="18" Column="22" />
       <File FileName="Week9PrismExampleUnitTests/MainPageViewModelTests.cs" Line="29" Column="15" NotebookId="1" />
-      <File FileName="Week9PrismExampleApp/Views/EasyTestPage.xaml" Line="10" Column="1" NotebookId="1" />
-      <File FileName="Week9PrismExampleApp/Views/EasyTestPage.xaml.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Week9PrismExampleApp/ViewModels/EasyTestPageViewModel.cs" Line="13" Column="13" NotebookId="1" />
+      <File FileName="Week9PrismExampleUnitTests/EasyTestPageViewModelTests.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
