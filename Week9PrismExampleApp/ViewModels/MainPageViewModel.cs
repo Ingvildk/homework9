@@ -28,15 +28,25 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private ObservableCollection<string> _collectionOfNames = new ObservableCollection<string>();
-        public ObservableCollection<string> WeatherCollection
+        private string _locationEnteredByUser;
+        public string LocationEnteredByUser
         {
-            get { return _collectionOfNames; }
-            set { SetProperty(ref _collectionOfNames, value); }
+            get { return _locationEnteredByUser; }
+            set { SetProperty(ref _locationEnteredByUser, value); }
+        }
+
+
+
+        private ObservableCollection<WeatherItem> _weatherCollection = new ObservableCollection<WeatherItem>();
+        public ObservableCollection<WeatherItem> WeatherCollection
+        {
+            get { return _weatherCollection; }
+            set { SetProperty(ref _weatherCollection, value); }
         }
 
         public DelegateCommand NavToNewPageCommand { get; set; }
         public DelegateCommand AddNameCommand { get; set; }
+		public DelegateCommand GetWeatherForLocationCommand { get; set; }
 
 		INavigationService _navigationService;
 
@@ -46,10 +56,29 @@ namespace Week9PrismExampleApp.ViewModels
 
             AddNameCommand = new DelegateCommand(AddName);
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
+            GetWeatherForLocationCommand = new DelegateCommand(GetWeatherForLocation);
+
             Title = "Xamarin Forms Application + Prism";
             ButtonText = "Add Name";
 
-			PopulateListView();
+			//Popul/ateListView();
+		}
+
+        internal async void GetWeatherForLocation()
+        {
+			HttpClient client = new HttpClient();
+			var uri = new Uri(
+				string.Format(
+                    $"http://api.openweathermap.org/data/2.5/weather?q={LocationEnteredByUser}&units=imperial&APPID=" +
+					$"{ApiKeys.WeatherKey}"));
+			var response = await client.GetAsync(uri);
+			WeatherItem weatherData = null;
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+				weatherData = WeatherItem.FromJson(content);
+			}
+			WeatherCollection.Add(weatherData);
 		}
 
         private async void NavToNewPage()
@@ -61,7 +90,6 @@ namespace Week9PrismExampleApp.ViewModels
 
         internal async void AddName()
         {
-            WeatherCollection.Add("Temp");
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -91,14 +119,7 @@ namespace Week9PrismExampleApp.ViewModels
 				var content = await response.Content.ReadAsStringAsync();
                 weatherData = WeatherItem.FromJson(content);
 			}
-            WeatherCollection.Add(weatherData.Name);
-
-			WeatherCollection.Add("Thomas");
-            WeatherCollection.Add("Charlie");
-            WeatherCollection.Add("James");
-            WeatherCollection.Add("Jennifer");
-            WeatherCollection.Add("Sharon");
-            WeatherCollection.Add("Aaron");
+            WeatherCollection.Add(weatherData);
         }
     }
 }

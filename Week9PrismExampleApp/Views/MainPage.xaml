@@ -11,14 +11,6 @@
         Padding="0,20,0,0"
         HorizontalOptions="Center"
         VerticalOptions="Start">
-        <StackLayout
-            Orientation="Horizontal"
-            HorizontalOptions="Center">
-            <Entry
-                Placeholder="Enter Location" />
-            <Button
-                Text="Search Weather" />
-        </StackLayout>
         <Button
             Text="Navigation Example"
             Command="{Binding NavToNewPageCommand}" />
@@ -26,7 +18,36 @@
             x:Name="AddNameButton"
             Text="{Binding ButtonText}"
             Command="{Binding AddNameCommand}" />
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="CenterAndExpand">
+            <Entry
+                Placeholder="Enter Location"
+                Text="{Binding LocationEnteredByUser}" />
+            <Button
+                Text="Search Weather"
+                Command="{Binding GetWeatherForLocationCommand}" />
+        </StackLayout>
         <ListView
-            ItemsSource="{Binding CollectionOfNames}" />
+            ItemsSource="{Binding WeatherCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start" />
+                                <Label
+                                    Text="{Binding Main.Temp}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
