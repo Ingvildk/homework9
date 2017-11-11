@@ -16,14 +16,12 @@ namespace Week9PrismExampleApp
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync($"MainPage");
+            NavigationService.NavigateAsync($"ListPage");
         }
 
         protected override void RegisterTypes()
         {
-            Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<SamplePageForNavigation>();
-
+            Container.RegisterTypeForNavigation<ListPage>();
 		}
     }
 }

@@ -32,14 +32,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\ListPage.xaml.cs">
+      <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="Views\SamplePageForNavigation.xaml.cs">
-      <DependentUpon>SamplePageForNavigation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\SamplePageForNavigationViewModel.cs" />
+    <Compile Include="ViewModels\ListPageViewModel.cs" />
     <Compile Include="Models\WeatherItemModel.cs" />
     <Compile Include="ApiKeys.cs" />
     <Compile Include="Views\EasyTestPage.xaml.cs">
@@ -51,10 +47,7 @@
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SamplePageForNavigation.xaml">
+    <EmbeddedResource Include="Views\ListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EasyTestPage.xaml">

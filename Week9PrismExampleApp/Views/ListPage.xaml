@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="Week9PrismExampleApp.Views.ListPage"
+    Title="ListPage"
+    Padding="0,20,0,0">
+    <StackLayout
+        Padding="0,20,0,0"
+        HorizontalOptions="Center"
+        VerticalOptions="Start">
+        <Button
+            Text="Navigation Example"
+            Command="{Binding NavToNewPageCommand}" />
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="CenterAndExpand">
+            <Entry
+                Placeholder="Enter Location"
+                Text="{Binding LocationEnteredByUser}"
+                WidthRequest="200" />
+            <Button
+                Text="Search Weather"
+                Command="{Binding GetWeatherForLocationCommand}" />
+        </StackLayout>
+        <ListView
+            ItemsSource="{Binding WeatherCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="LocationNameLabel"
+                                    Text="{Binding userId, StringFormat='UserId: {0}'}"
+                                    VerticalOptions="Center"
+                                    Margin="10" />
+                                <Label
+                                    x:Name="TemperatureLabel"
+                                    Text="{Binding id , StringFormat='Id: {0}'}"
+                                    VerticalOptions="Center"
+                                    Margin="10" />
+                                <Label
+                                    x:Name="CloudLabel"
+                                    Text="{Binding title, StringFormat='Title: {0}'}"
+                                    VerticalOptions="Center"
+                                    Margin="10" />
+                            </StackLayout>
+                        </ViewCell.View>
+                        <ViewCell.ContextActions>
+                           <MenuItem
+                               Text="More"
+                               Command="{Binding RedirectCommand}" 
+                               IsDestructive="true" >
+                           </MenuItem>
+                           <MenuItem
+                               Text="Delete"
+                               IsDestructive="True"
+                               Command="{Binding DeleteCommand}"
+                               CommandParameter="{Binding id}" 
+                            />
+                       </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
