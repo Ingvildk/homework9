@@ -17,6 +17,9 @@ namespace Week9PrismExampleApp.Models
 
 			[JsonProperty("title")]
 			public string title { get; set; }
+			
+            [JsonProperty("body")]
+			public string body { get; set; }
         }
   
         public partial class WeatherItem

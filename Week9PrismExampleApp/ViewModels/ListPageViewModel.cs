@@ -46,8 +46,8 @@ namespace Week9PrismExampleApp.ViewModels
 
         public DelegateCommand NavToNewPageCommand { get; set; }
         public DelegateCommand GetWeatherForLocationCommand { get; set; }
-        public DelegateCommand DeleteCommand { get; set; }
-        public DelegateCommand RedirectCommand{ get; set; }
+        public DelegateCommand<WeatherItem> DeleteCommand { get; set; }
+        public DelegateCommand<WeatherItem> RedirectCommand{ get; set; }
 
         INavigationService _navigationService;
 
@@ -57,8 +57,8 @@ namespace Week9PrismExampleApp.ViewModels
 
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
             GetWeatherForLocationCommand = new DelegateCommand(GetWeatherForLocation);
-            DeleteCommand = new DelegateCommand(Delete(object sender, System.EventArgs e));
-            RedirectCommand = new DelegateCommand(Redirect);
+            DeleteCommand = new DelegateCommand<WeatherItem>(Delete);
+            RedirectCommand = new DelegateCommand<WeatherItem>(Redirect);
 
 			Title = "Xamarin Forms Application + Prism";
             ButtonText = "Add Name";
@@ -95,25 +95,21 @@ namespace Week9PrismExampleApp.ViewModels
 			return -1;
 		}
 
-		//delete
-		void Handle_Clicked(object sender, System.EventArgs e)
+        public void Delete(WeatherItem weatherItem)
+        {
+			_weatherCollection.Remove(weatherItem);
+		}
+
+
+		private async void Redirect(WeatherItem weatherItem)
 		{
-
+			var navParams = new NavigationParameters();
+			navParams.Add("WeatherItemInfo", weatherItem);
+			await _navigationService.NavigateAsync("MoreInfoPage", navParams);
 		}
-        public async void Delete(object sender, System.EventArgs e)
-        {
-            MenuItem menI = (MenuItem)sender;
-			int key = (int)menI.CommandParameter;
-			//var col = (ObservableCollection<WeatherItem>) WeatherCollection.It;
-			int actualIndex = FindMahIndex(key, _weatherCollection);
 
-			_weatherCollection.RemoveAt(actualIndex);
-        }
 
-        public async void Redirect()
-        {
-			Device.OpenUri(new Uri("https://www.dllme.com/dll/files/system_device_dll.html"));
-		}
+
 
         private async void NavToNewPage()
         {

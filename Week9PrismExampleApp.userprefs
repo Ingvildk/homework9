@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{A448DDE5-BC84-4996-834C-1A401D8C3692}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Week9PrismExampleUnitTests/MainPageViewModelTests.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Week9PrismExampleApp/App.xaml.cs" Line="6" Column="6" />
-      <File FileName="Week9PrismExampleApp/ViewModels/ListPageViewModel.cs" Line="102" Column="41" />
-      <File FileName="Week9PrismExampleApp/Models/WeatherItemModel.cs" Line="11" Column="10" />
+      <File FileName="Week9PrismExampleApp/App.xaml.cs" Line="25" Column="56" />
+      <File FileName="Week9PrismExampleApp/ViewModels/ListPageViewModel.cs" Line="60" Column="15" />
+      <File FileName="Week9PrismExampleApp/Models/WeatherItemModel.cs" Line="10" Column="41" />
       <File FileName="Week9PrismExampleApp/ViewModels/EasyTestPageViewModel.cs" Line="18" Column="22" />
-      <File FileName="Week9PrismExampleApp/Views/ListPage.xaml" Line="53" Column="34" />
+      <File FileName="Week9PrismExampleApp/Views/ListPage.xaml" Line="69" Column="15" />
       <File FileName="Week9PrismExampleApp/App.xaml" Line="8" Column="1" />
       <File FileName="Week9PrismExampleApp/Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.Views.ListPage.xaml.g.cs" Line="1" Column="1" />
@@ -13,14 +13,14 @@
       <File FileName="Week9PrismExampleApp.iOS/Main.cs" Line="17" Column="1" />
       <File FileName="../../Downloads/smile/Homework4Page.xaml" Line="6" Column="18" />
       <File FileName="Week9PrismExampleApp/Views/ListPage.xaml.cs" Line="20" Column="9" />
-      <File FileName="Week9PrismExampleUnitTests/MainPageViewModelTests.cs" Line="12" Column="9" />
+      <File FileName="Week9PrismExampleUnitTests/MainPageViewModelTests.cs" Line="7" Column="37" />
+      <File FileName="Week9PrismExampleApp/Views/MoreInfoPage.xaml" Line="19" Column="15" />
+      <File FileName="Week9PrismExampleApp/Views/MoreInfoPage.xaml.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleUnitTests/MainPageViewModelTests.cs" relfile="Week9PrismExampleUnitTests/MainPageViewModelTests.cs" line="20" column="1" />
-      <Breakpoint file="/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleUnitTests/MainPageViewModelTests.cs" relfile="Week9PrismExampleUnitTests/MainPageViewModelTests.cs" line="14" column="1" />
       <Breakpoint file="/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/ViewModels/SamplePageForNavigationViewModel.cs" relfile="Week9PrismExampleApp/ViewModels/SamplePageForNavigationViewModel.cs" line="27" column="1" />
       <Breakpoint file="/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/ViewModels/SamplePageForNavigationViewModel.cs" relfile="Week9PrismExampleApp/ViewModels/SamplePageForNavigationViewModel.cs" line="25" column="1" />
     </BreakpointStore>

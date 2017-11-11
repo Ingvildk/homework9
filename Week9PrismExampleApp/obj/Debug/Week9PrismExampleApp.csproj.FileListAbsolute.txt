@@ -36,5 +36,7 @@
 /Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.App.xaml.g.cs
 /Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.Views.ListPage.xaml.g.cs
 /Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.Views.EasyTestPage.xaml.g.cs
+/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.Views.MoreInfoPage.xaml.g.cs
 /Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.dll
 /Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.pdb
+/Users/wenkewahl/Desktop/Week9PrismExampleApp/Week9PrismExampleApp/obj/Debug/Week9PrismExampleApp.csprojResolveAssemblyReference.cache

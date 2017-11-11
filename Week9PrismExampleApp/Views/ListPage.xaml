@@ -26,10 +26,12 @@
                 Command="{Binding GetWeatherForLocationCommand}" />
         </StackLayout>
         <ListView
+            x:Name="WeatherListView"
             ItemsSource="{Binding WeatherCollection}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell
+                        x:Name="WeatherItemCell">
                         <ViewCell.View>
                             <StackLayout
                                 Orientation="Horizontal">
@@ -51,17 +53,21 @@
                             </StackLayout>
                         </ViewCell.View>
                         <ViewCell.ContextActions>
-                           <MenuItem
-                               Text="More"
-                               Command="{Binding RedirectCommand}" 
-                               IsDestructive="true" >
-                           </MenuItem>
-                           <MenuItem
-                               Text="Delete"
-                               IsDestructive="True"
-                               Command="{Binding DeleteCommand}"
-                               CommandParameter="{Binding id}" 
-                            />
+                            <MenuItem
+                                x:Name="MoreInfoButton"
+                                AutomationId="MoreInfoButton"
+                                BindingContext="{Binding Source={x:Reference WeatherListView}, Path=BindingContext}"
+                                Command="{Binding RedirectCommand}"
+                                CommandParameter="{Binding Source={x:Reference WeatherItemCell}, Path=BindingContext}"
+                                Text="More" />
+                            <MenuItem
+                                x:Name="DeleteButton"
+                                AutomationId="DeleteButton"
+                                Text="Delete"
+                                IsDestructive="True"
+                                BindingContext="{Binding Source={x:Reference WeatherListView}, Path=BindingContext}"
+                                Command="{Binding DeleteCommand}"
+                                CommandParameter="{Binding Source={x:Reference WeatherItemCell}, Path=BindingContext}"/>
                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>

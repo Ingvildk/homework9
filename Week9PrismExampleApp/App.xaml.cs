@@ -22,6 +22,7 @@ namespace Week9PrismExampleApp
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<ListPage>();
+			Container.RegisterTypeForNavigation<MoreInfoPage>();
 		}
     }
 }
